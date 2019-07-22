@@ -19,15 +19,16 @@ get ('/albums/new') do
 end
 
 post ('/albums') do
-  binding.pry
-end
-
-post ('/albums') do
   name = params[:album_name]
   album = Album.new(name, nil)
   album.save()
   @albums = Album.all() # Adding this line will fix the error.
   erb(:albums)
+end
+
+get ('/albums/:id') do
+  @album = Album.find(params[:id].to_i())
+  erb(:album)
 end
 
 get ('/') do

@@ -14,3 +14,14 @@
 <% end %>
 
 <a href="/albums/new">Add a new album</a>
+<h4>Album Name: <%= @album.name %></h4>
+
+<p><a href="/albums/<%= @album.id %>/edit">Edit album</a></p>
+<a href="/albums">Return to album list</a>
+<form action="/albums">
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Go!</button>
+</form>
